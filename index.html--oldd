@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support & Help</title>
+    <!-- Preconnect to the CDN for faster loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Apply Inter font and set base styles for the dark theme */
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom subtle pulse animation for the main content box */
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        50% {
+          transform: scale(1.02);
+          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+      }
+      .animate-pulse-subtle {
+        animation: pulse 3s infinite ease-in-out;
+      }
+    </style>
+  </head>
+  <!-- Set a dark gradient background for the body -->
+  <body class="bg-gradient-to-br from-gray-900 to-black min-h-screen flex items-center justify-center p-4 text-white">
+
+    <!-- Main container for the support card -->
+    <div class="max-w-md w-full text-center">
+      <div class="bg-gray-800 p-8 sm:p-12 rounded-3xl shadow-2xl animate-pulse-subtle">
+        
+        <!-- Main heading -->
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-4">
+          Contact Support
+        </h1>
+        
+        <!-- Simple instruction for visitors -->
+        <p class="text-md sm:text-lg text-gray-300 mb-6">
+          For any questions or issues, please email us at:
+        </p>
+
+        <!-- Email address as a large, clickable link, now obfuscated -->
+        <a id="email-link" href="#" class="text-2xl sm:text-3xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-200">
+          <!-- The email will be inserted here by JavaScript -->
+        </a>
+      </div>
+      
+      <!-- Footer at the bottom -->
+      <footer class="mt-8 text-center text-sm text-gray-400">
+        <p>&copy; 2024. All rights reserved.</p>
+      </footer>
+    </div>
+    
+    <!-- JavaScript to de-obfuscate the email address -->
+    <script>
+      // Function to assemble and display the email address
+      function protectEmail() {
+        // Define parts of the email address
+        const user = 'help';
+        const domain = 'ladns.net';
+        const link = document.getElementById('email-link');
+
+        // Check if the link element exists
+        if (link) {
+          // Join the parts and set the href and text content
+          const email = user + '@' + domain;
+          link.href = 'mailto:' + email;
+          link.textContent = email;
+        }
+      }
+
+      // Call the function when the page loads to protect against bots
+      document.addEventListener('DOMContentLoaded', protectEmail);
+    </script>
+  </body>
+</html>
